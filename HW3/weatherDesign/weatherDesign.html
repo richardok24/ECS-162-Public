@@ -1,0 +1,113 @@
+<!doctype HTML>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="weatherDesign.css">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300" rel="stylesheet">
+  <script type="text/javascript" src="weatherDesign.js"></script>
+  <script src="collectPastDoppler.js"></script>
+</head>
+
+<body id="Body" onload="makeCorsRequest(); addEvent();">
+
+  <header>
+    <div id="HeaderBox1">
+      <div id="HeaderText1">
+        <p>Local Weather Six Hour Forecast</p>
+      </div>
+      <div id="HeaderText2">
+        <p>Northern California with doppler radar</p>
+      </div>
+      <div id="Search">
+        <p>Forecast for &ensp;</p>
+        <input id="SearchItem" type="text" value="Davis, CA">&ensp;&ensp;
+        <button onclick="makeCorsRequest()">submit</button>
+      </div>
+    </div>
+
+    <div id="Current">
+      <div id="Current-Time-Container">
+          <p id="Current-Text">current</p>
+          <p id="Current-Time"></p>
+      </div>
+
+      <img id="Current-Weather-Image" src="">
+      <p id="Current-Temperature"></p>
+    </div>
+
+    <div id="HeaderBox2" class="WebView">
+      <img id="Map" src="http://radar.weather.gov/ridge/Overlays/Topo/Short/DAX_Topo_Short.jpg" alt="Topographic map">
+      <img id="RadarImg0" class="RadarImgs" src="" alt="RadarImg0">
+      <img id="RadarImg1" class="RadarImgs" src="" alt="RadarImg1">
+      <img id="RadarImg2" class="RadarImgs" src="" alt="RadarImg2">
+      <img id="RadarImg3" class="RadarImgs" src="" alt="RadarImg3">
+      <img id="RadarImg4" class="RadarImgs" src="" alt="RadarImg4">
+      <img id="RadarImg5" class="RadarImgs" src="" alt="RadarImg5">
+      <img id="RadarImg6" class="RadarImgs" src="" alt="RadarImg6">
+      <img id="RadarImg7" class="RadarImgs" src="" alt="RadarImg7">
+      <img id="RadarImg8" class="RadarImgs" src="" alt="RadarImg8">
+      <img id="RadarImg9" class="RadarImgs" src="" alt="RadarImg9">
+      <img src="http://radar.weather.gov/ridge/Overlays/Cities/Short/DAX_City_Short.gif" alt="Cities">
+    </div>
+    <img onclick="slides()" alt="slide up" id="Slide-Up" src="./assets/upArrow.svg">
+  </header>
+
+  <main id="Main">
+    <img onclick="slides()" alt="slide down" id="Slide-Down" src="./assets/downArrow.svg">
+    <div id="First">
+      <div class="Time-Container">
+        <p class="Time"> </p>
+      </div>
+      <img class="Weather-Picture">
+      <div class="Temperature-Container">
+        <p class="Temperature"> </p>
+      </div>
+    </div>
+    <div id="Second">
+      <div class="Time-Container">
+        <p class="Time"> </p>
+      </div>
+      <img class="Weather-Picture">
+      <div class="Temperature-Container">
+        <p class="Temperature"> </p>
+      </div>
+    </div>
+    <div id="Third">
+      <div class="Time-Container">
+        <p class="Time"> </p>
+      </div>
+      <img class="Weather-Picture">
+      <div class="Temperature-Container">
+        <p class="Temperature"> </p>
+      </div>
+    </div>
+    <div id="Fourth">
+      <div class="Time-Container">
+        <p class="Time"> </p>
+      </div>
+      <img class="Weather-Picture">
+      <div class="Temperature-Container">
+        <p class="Temperature"> </p>
+      </div>
+    </div>
+    <div id="Fiveth">
+      <div class="Time-Container">
+        <p class="Time"> </p>
+      </div>
+      <img class="Weather-Picture">
+      <div class="Temperature-Container">
+        <p class="Temperature"> </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+
+  </footer>
+</body>
+
+</html>
