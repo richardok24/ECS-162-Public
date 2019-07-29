@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  text-align: center;
+  width: 100vw;
+  margin-top: 5vh;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 7vh;
+  background-color: #606B9B;
+}
+
+#userName {
+  font-family: helvetica;
+  font-size: 25pt;
+  color: white;
+}
+
+/* Main Page */
+
+#reviewButton {
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  font-family: helvetica;
+  font-size: 25pt;
+  color: white;
+  background-color: #606B9B;
+  width: 25vw;
+  height: 60px;
+  margin-left: 5vw;
+  top: 50px;
+}
+
+#title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 70pt;
+  color: #606B9B;
+  width: 100vw;
+}
+
+#main {
+  display: flex;
+  margin-top: 10vh;
+  width: 100vw;
+  height: 45vh;
+}
+
+#input {
+  text-align: center;
+  border-style: solid;
+  resize: none;
+  border-color: grey;
+  border-width: 2px;
+  font-family: helvetica;
+  font-size: 30pt;
+  margin-left: 11vw;
+  margin-right: 1.5vw;
+  width: 100vw;
+  padding-top: 19vh;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+#translation {
+  text-align: center;
+  border-style: solid;
+  resize: none;
+  color: black;
+  background-color: white;
+  border-color: grey;
+  border-width: 2px;
+  font-family: helvetica;
+  font-size: 30pt;
+  margin-left: 1.5vw;
+  margin-right: 11vw;
+  width: 100vw;
+  padding-top: 19vh;
+}
+
+#saveBox {
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  margin-right: 14vw;
+  margin-top: 6vh;
+}
+
+#saveButton {
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  font-family: helvetica;
+  font-size: 25pt;
+  color: white;
+  background-color: #70C7A9;
+  width: 20vw;
+  height: 60px;
+  margin-right: 11vw;
+}
+
+/* Answer Page */
+
+#addButton {
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  font-family: helvetica;
+  font-size: 25pt;
+  color: white;
+  background-color: #606B9B;
+  width: 15vw;
+  height: 60px;
+  margin-left: 5vw;
+  top: 50px;
+}
+
+#answerPageMain {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-top: 10vh;
+}
+
+#textFront {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  border-style: solid;
+  resize: none;
+  color: black;
+  background-color: white;
+  border-color: grey;
+  border-width: 2px;
+  font-family: helvetica;
+  font-size: 30pt;
+  width: 99%;
+  height: 20vh;
+  margin-bottom: 1vh;
+  padding-top: 15vh;
+  z-index: 2;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#textBack {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  border-style: solid;
+  resize: none;
+  color: black;
+  background-color: white;
+  border-color: grey;
+  border-width: 2px;
+  font-family: helvetica;
+  font-size: 30pt;
+  width: 99%;
+  height: 20vh;
+  margin-bottom: 1vh;
+  padding-top: 15vh;
+  z-index: 1;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#correctBox {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+#correct {
+  display: none;
+  text-align: center;
+  outline: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #40aa03;
+  font-family: helvetica;
+  font-size: 40pt;
+  color: #40aa03;
+  background-color: #dbffaf;
+  width: 30vw;
+  height: 20vh;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+#refreshIcon {
+  position: absolute;
+  width: 5vw;
+  right: 0;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  z-index: 3;
+}
+
+#refreshIcon.refresh {
+  left: 0;
+}
+
+.flipCardFront {
+  position: relative;
+  cursor: pointer;
+}
+
+.flipCardBack {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+/*- Card container -*/
+.card-container {
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+/*- Card body -*/
+.card-body {
+  transition: all .7s linear;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+/*- Flipping the card -*/
+.card-body.is-flipped {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+#inputAnswer {
+  border-style: solid;
+  resize: none;
+  border-color: grey;
+  border-width: 2px;
+  font-family: helvetica;
+  font-size: 30pt;
+  height: 10vh;
+  margin-top: 1vh;
+  padding-left: 3vh;
+  padding-right: 3vh;
+  padding-top: 3vh;
+}
+
+#nextBox {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20vw;
+  margin-top: 3vh;
+}
+
+#nextButton {
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  font-family: helvetica;
+  font-size: 25pt;
+  color: white;
+  background-color: #70C7A9;
+  width: 20vw;
+  height: 60px;
+}
+
+@media only screen and (max-width: 999px) {
+
+  /* Main, Answer Page */
+
+  #reviewButton {
+    font-size: 3.35vw;
+  }
+
+  #title {
+    font-size: 9.35vw;
+  }
+
+  #correct {
+    font-size: 5vw;
+  }
+}
+
+@media only screen and (max-width: 549px) {
+
+  /* Main Page */
+
+  #main {
+    display: block;
+    height: 53vh;
+  }
+
+  #input {
+    width: 75vw;
+    height: 15vh;
+    margin-left: 12vw;
+    margin-right: 0vw;
+    margin-bottom: 1.5vh;
+    padding-top: 11vh;
+  }
+
+  #translation {
+    width: 75vw;
+    height: 15vh;
+    margin-left: 12vw;
+    margin-right: 0vw;
+    margin-top: 1.5vh;
+    padding-top: 11vh;
+  }
+
+  /* Answer Page */
+
+  #addButton {
+    font-size: 14pt;
+  }
+
+  #textFront {
+    font-size: 20pt;
+  }
+
+  #textBack {
+    font-size: 20pt;
+  }
+
+  #nextButton {
+    font-size: 17pt;
+  }
+
+  #userName {
+    font-size: 17pt;
+  }
+}
