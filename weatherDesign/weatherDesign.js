@@ -37,7 +37,7 @@ function animationEndEvent(event) {
 // Make the actual CORS request.
 function makeCorsRequest() {
     let location = document.getElementById("SearchItem").value.replace("CA", "US");
-    let url = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=" + location + "&units=imperial&APPID=8dbf4c203cb2c112eb3fabfa684b7c14";
+    let url = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=imperial&APPID=28bbca9f363f53f6b22844be1acb89ea";
     console.log(url);
     let xhr = createCORSRequest('GET', url);
 
@@ -49,9 +49,9 @@ function makeCorsRequest() {
 
     // Load some functions into response handlers.
     xhr.onload = function () {
-        let responseStr = xhr.responseText;  // get the JSON string 
+        let responseStr = xhr.responseText;  // get the JSON string
         let object = JSON.parse(responseStr);  // turn it into an object
-        
+
         updatePage(object);
     };
 
@@ -99,13 +99,13 @@ function updatePage(data) {
     let i;
 
     let iconPath = getIconPath(wheatherIcon);
-    
+
     document.getElementById("Current-Time").innerHTML = currentHour.toString(10) + "" + AMPM;
     document.getElementById("Current-Temperature").innerHTML = Math.round(data.list[0].main.temp.toString(10)) + "&#176";
     document.getElementById("Current-Weather-Image").src = iconPath;
     currentHour = time.getHours();
     for (i = 2; i < weathers.length + 1; i++) {
-        
+
         let weatherData = data.list[i-1];
         let hour = currentHour + i - 1;
 
@@ -117,16 +117,16 @@ function updatePage(data) {
         else {
             wheatherIcon = wheatherIcon.substr(0, 2) + "n" + wheatherIcon.substr(3);
         }
-        
+
         //convert
         if (hour > 0 && hour < 12) AMPM = "AM";
         else {
             AMPM = "PM";
             hour -= 12;
         }
-        
+
         let iconPath = getIconPath(wheatherIcon);
-        
+
         weathers[i-1].children[0].children[0].innerHTML = hour.toString(10) + ":00" + AMPM;
         weathers[i-1].children[1].src = iconPath;
         weathers[i-1].children[2].children[0].innerHTML = Math.round(weatherData.main.temp).toString(10) + "&#176";
@@ -159,12 +159,12 @@ function getIconPath(wheatherIcon) {
 function distance(lat1, lon1, lat2, lon2, unit) {
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
-    var dLon = deg2rad(lon2-lon1); 
-    var a = 
+    var dLon = deg2rad(lon2-lon1);
+    var a =
       Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-      Math.sin(dLon/2) * Math.sin(dLon/2); 
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var d = R * c; // Distance in km
     return d / 0.621371;
 }
